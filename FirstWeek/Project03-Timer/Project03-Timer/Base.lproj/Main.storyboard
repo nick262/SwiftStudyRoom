@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project03_Timer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTc-2A-YsM">
+                                <rect key="frame" x="187.5" y="232" width="187.5" height="435"/>
+                                <color key="backgroundColor" red="0.044423431013623581" green="0.73909083549222798" blue="0.12262339234425279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="20"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eum-21-crM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="232"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxx-46-I4h">
+                                        <rect key="frame" x="136.5" y="74" width="102" height="84"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96f-H1-61e">
+                                        <rect key="frame" x="306" y="20" width="39" height="30"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eum-21-crM" secondAttribute="height" multiplier="375:232" id="KYU-lY-XqJ"/>
+                                    <constraint firstItem="oxx-46-I4h" firstAttribute="centerX" secondItem="eum-21-crM" secondAttribute="centerX" id="PLK-9B-mQq"/>
+                                    <constraint firstItem="96f-H1-61e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eum-21-crM" secondAttribute="leading" constant="20" symbolic="YES" id="UoA-aU-wMy"/>
+                                    <constraint firstItem="96f-H1-61e" firstAttribute="top" secondItem="eum-21-crM" secondAttribute="top" constant="20" id="XNO-Jk-2RP"/>
+                                    <constraint firstItem="oxx-46-I4h" firstAttribute="centerY" secondItem="eum-21-crM" secondAttribute="centerY" id="eKq-HE-Qpx"/>
+                                    <constraint firstAttribute="trailing" secondItem="96f-H1-61e" secondAttribute="trailing" constant="30" id="fy9-ks-BcR"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-48-qpZ">
+                                <rect key="frame" x="0.0" y="232" width="187.5" height="435"/>
+                                <color key="backgroundColor" red="0.35319685047572535" green="0.44664713109752674" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" keyboardKey="YES"/>
+                                </accessibility>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qTc-2A-YsM" firstAttribute="leading" secondItem="CvY-48-qpZ" secondAttribute="trailing" id="5uL-xe-bCa"/>
+                            <constraint firstItem="CvY-48-qpZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="86I-Hp-KRS"/>
+                            <constraint firstItem="CvY-48-qpZ" firstAttribute="top" secondItem="eum-21-crM" secondAttribute="bottom" id="C8V-eW-aGb"/>
+                            <constraint firstItem="qTc-2A-YsM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JRp-ds-XTx"/>
+                            <constraint firstItem="eum-21-crM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="JWU-HA-SCH"/>
+                            <constraint firstItem="eum-21-crM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QP7-Ob-ReB"/>
+                            <constraint firstItem="qTc-2A-YsM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cEk-IL-jZz"/>
+                            <constraint firstItem="qTc-2A-YsM" firstAttribute="top" secondItem="eum-21-crM" secondAttribute="bottom" id="cPt-7t-ib1"/>
+                            <constraint firstItem="qTc-2A-YsM" firstAttribute="width" secondItem="CvY-48-qpZ" secondAttribute="width" id="qMm-ry-GNA"/>
+                            <constraint firstItem="CvY-48-qpZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vEL-cH-1IM"/>
+                            <constraint firstItem="eum-21-crM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xNL-5F-oT3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="numLabel" destination="oxx-46-I4h" id="Qk9-M5-iWt"/>
+                        <outlet property="pauseBtn" destination="qTc-2A-YsM" id="6Zj-nh-cWt"/>
+                        <outlet property="resetBtn" destination="96f-H1-61e" id="88m-ic-FgE"/>
+                        <outlet property="startBtn" destination="CvY-48-qpZ" id="CgC-3h-wVB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+        </scene>
+    </scenes>
+</document>
