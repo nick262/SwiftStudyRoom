@@ -12,9 +12,6 @@ class ContinentModel {
     var name : String
     var countries : [CountryModel]
     var isOpen = true
-//    func touch() {
-//        isOpen = !isOpen
-//    }
     init(name:String,countries:[CountryModel]) {
         self.name = name
         self.countries = countries
@@ -24,9 +21,6 @@ class CountryModel {
     var name : String
     var provinces: [String]
     var isOpen = false
-//    func touch() {
-//        isOpen = !isOpen
-//    }
     init(name:String,provinces:[String]) {
         self.name = name
         self.provinces = provinces
@@ -48,7 +42,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let NewZealand = CountryModel(name: "新西兰", provinces: [])
         let Oceania = ContinentModel(name: "大洋洲", countries: [Australia,NewZealand])
         continents = [Asia,SouthAmerica,Oceania]
-        tableView = UITableView.init(frame: self.view.bounds, style: .plain)
+        tableView = UITableView.init(frame: CGRect(x:10, y:0, width: UIScreen.main.bounds.size.width - 20,height:self.view.bounds.size.height ), style: .plain)
         tableView?.delegate = self
         tableView?.dataSource = self
         view.addSubview(tableView!)
@@ -56,16 +50,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return (continents?.count)!
     }
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return continents![section].name
-//    }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = NKHeaderView.init(frame: CGRect(x:0,y:0,width:view.bounds.size.width, height:10), continet: continents![section], index: section)
+        headerView.layer.cornerRadius = 8
         headerView.delegate = self
         return headerView
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView.init()
+        footerView.backgroundColor = UIColor.clear
+        return footerView
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let country = continents![indexPath.section].countries[indexPath.row]
@@ -76,14 +76,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let country = continents![indexPath.section].countries[indexPath.row]
-//        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-//        cell.textLabel?.text = country.name
-//        return cell
         let cell = NKTableViewCell(style: .default, reuseIdentifier: "Cell", country: country, indexPath: indexPath as NSIndexPath)
         cell.delegate = self
         return cell
-        
-        
     }
     // NKHeaderViewDelegate
     func openOrCloseContent(index: Int) {

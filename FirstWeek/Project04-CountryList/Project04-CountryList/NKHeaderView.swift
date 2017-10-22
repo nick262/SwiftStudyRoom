@@ -23,11 +23,13 @@ class NKHeaderView: UIView {
         addSubview(continetNameLabel)
         
         let openOrCloseBtn = UIButton.init(type: .custom)
-        openOrCloseBtn.frame = CGRect(x: UIScreen.main.bounds.size.width - 30 , y: 15, width: 20, height: 20)
+        openOrCloseBtn.frame = CGRect(x: UIScreen.main.bounds.size.width - 60 , y: 15, width: 20, height: 20)
         openOrCloseBtn.addTarget(self, action: #selector(openOrClose(sender:)), for: .touchUpInside)
         openOrCloseBtn.setImage(UIImage.init(named: continet.isOpen ? "minus":"add"), for: .normal)
         addSubview(openOrCloseBtn)
-        backgroundColor = UIColor.gray
+        backgroundColor = UIColor.init(red: 233/255, green: 233/255, blue: 233/255, alpha: 1)
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.lightGray.cgColor
     }
     @objc func openOrClose(sender:UIButton){
         guard (delegate != nil) else {

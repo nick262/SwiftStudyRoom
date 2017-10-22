@@ -22,8 +22,10 @@ class NKTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.indexPath = indexPath
         self.isOpen = country.isOpen
-        let nameView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 40))
-        nameView.backgroundColor = UIColor.lightGray
+        let nameView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 20, height: 40))
+        nameView.backgroundColor = UIColor.init(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)
+        nameView.layer.borderWidth = 1
+        nameView.layer.borderColor = UIColor.lightGray.cgColor
         let label = UILabel(frame: CGRect(x: 20, y: 0, width: 200, height: 30))
         label.text = country.name
         nameView.addSubview(label)
@@ -36,12 +38,14 @@ class NKTableViewCell: UITableViewCell {
         nameView.addSubview(openOrCloseBtn)
         contentView.addSubview(nameView)
         
-        cityView = UIView(frame: CGRect(x: 0, y: 40, width: Int(UIScreen.main.bounds.size.width), height: country.provinces.count * 40))
+        cityView = UIView(frame: CGRect(x: 0, y: 40, width: Int(UIScreen.main.bounds.size.width ), height: country.provinces.count * 40))
         cityView?.isHidden = !isOpen!
 
         for count in 0..<country.provinces.count {
-            let provinceLabel = UILabel(frame: CGRect(x: 40, y: 40 * count, width: Int(bounds.size.width), height: 40))
-            provinceLabel.text = country.provinces[count]
+            let provinceLabel = UILabel(frame: CGRect(x: 0, y: 40 * count, width: Int(UIScreen.main.bounds.size.width - 20), height: 40))
+            provinceLabel.text = String("           \(country.provinces[count])")
+            provinceLabel.layer.borderWidth = 0.5
+            provinceLabel.layer.borderColor = UIColor.gray.cgColor
             cityView?.addSubview(provinceLabel)
         }
         
