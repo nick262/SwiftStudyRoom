@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NKCollectionViewCell" customModule="Project04_Linkage" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="136" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="136" height="170"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bolong" translatesAutoresizingMaskIntoConstraints="NO" id="bpJ-xh-HTL">
+                        <rect key="frame" x="3" y="3" width="130" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="120" id="rgU-GQ-IW5"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加拿大龙虾" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOX-6S-sLU">
+                        <rect key="frame" x="3" y="129" width="130" height="35"/>
+                        <color key="backgroundColor" red="1" green="0.9053856886765852" blue="0.030512129396194188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.69129729792915962" green="0.31542155629946622" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bpJ-xh-HTL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="N8g-C1-J4d"/>
+                <constraint firstItem="eOX-6S-sLU" firstAttribute="trailing" secondItem="bpJ-xh-HTL" secondAttribute="trailing" id="bZa-lP-dHl"/>
+                <constraint firstItem="eOX-6S-sLU" firstAttribute="leading" secondItem="bpJ-xh-HTL" secondAttribute="leading" id="ffA-m4-ZLj"/>
+                <constraint firstAttribute="trailing" secondItem="bpJ-xh-HTL" secondAttribute="trailing" constant="3" id="ikk-JF-TLe"/>
+                <constraint firstItem="eOX-6S-sLU" firstAttribute="top" secondItem="bpJ-xh-HTL" secondAttribute="bottom" constant="6" id="pbV-i6-iyP"/>
+                <constraint firstItem="bpJ-xh-HTL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="psj-x1-TOo"/>
+                <constraint firstAttribute="bottom" secondItem="eOX-6S-sLU" secondAttribute="bottom" constant="6" id="uLJ-Zg-V5o"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="136" height="170"/>
+            <connections>
+                <outlet property="imageView" destination="bpJ-xh-HTL" id="lH5-3O-4fO"/>
+                <outlet property="titleLabel" destination="eOX-6S-sLU" id="8HR-sn-Ycw"/>
+            </connections>
+            <point key="canvasLocation" x="-16" y="-43"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bolong" width="160" height="160"/>
+    </resources>
+</document>

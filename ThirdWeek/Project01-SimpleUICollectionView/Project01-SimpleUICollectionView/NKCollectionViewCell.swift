@@ -10,8 +10,6 @@ import UIKit
 
 class NKCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var label: UILabel!
-    let screenWidth = UIScreen.main.bounds.size.width
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
