@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         titleLabel.text = "吓死宝宝了！"
-        
+        self.titleLabel.isHidden = true
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
                 
             }, completion: { (finished) in
                 UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: .transitionCurlUp, animations: {
-                    self.titleLabel.isHidden = !self.titleLabel.isHidden
+                    self.titleLabel.isHidden = false
                 }, completion: nil)
             })
         

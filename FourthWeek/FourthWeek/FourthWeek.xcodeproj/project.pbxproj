@@ -22,6 +22,11 @@
 		01C140991FB1963C003136C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C140971FB1963C003136C0 /* Main.storyboard */; };
 		01C1409B1FB1963C003136C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01C1409A1FB1963C003136C0 /* Assets.xcassets */; };
 		01C1409E1FB1963C003136C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C1409C1FB1963C003136C0 /* LaunchScreen.storyboard */; };
+		01C140AA1FB1DC44003136C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C140A91FB1DC44003136C0 /* AppDelegate.swift */; };
+		01C140AC1FB1DC44003136C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C140AB1FB1DC44003136C0 /* ViewController.swift */; };
+		01C140AF1FB1DC44003136C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C140AD1FB1DC44003136C0 /* Main.storyboard */; };
+		01C140B11FB1DC44003136C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01C140B01FB1DC44003136C0 /* Assets.xcassets */; };
+		01C140B41FB1DC44003136C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C140B21FB1DC44003136C0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +51,13 @@
 		01C1409A1FB1963C003136C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01C1409D1FB1963C003136C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01C1409F1FB1963C003136C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01C140A71FB1DC44003136C0 /* LogoDiffuse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogoDiffuse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01C140A91FB1DC44003136C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		01C140AB1FB1DC44003136C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01C140AE1FB1DC44003136C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		01C140B01FB1DC44003136C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01C140B31FB1DC44003136C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		01C140B51FB1DC44003136C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +82,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01C140A41FB1DC44003136C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -79,6 +98,7 @@
 				01C140641FB13F46003136C0 /* AnalogClock */,
 				01C1407C1FB1840C003136C0 /* CABasicAnimation */,
 				01C140921FB1963B003136C0 /* HeartBeat */,
+				01C140A81FB1DC44003136C0 /* LogoDiffuse */,
 				01C140631FB13F46003136C0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +109,7 @@
 				01C140621FB13F46003136C0 /* AnalogClock.app */,
 				01C1407B1FB1840C003136C0 /* CABasicAnimation.app */,
 				01C140911FB1963B003136C0 /* HeartBeat.app */,
+				01C140A71FB1DC44003136C0 /* LogoDiffuse.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,6 +151,19 @@
 				01C1409F1FB1963C003136C0 /* Info.plist */,
 			);
 			path = HeartBeat;
+			sourceTree = "<group>";
+		};
+		01C140A81FB1DC44003136C0 /* LogoDiffuse */ = {
+			isa = PBXGroup;
+			children = (
+				01C140A91FB1DC44003136C0 /* AppDelegate.swift */,
+				01C140AB1FB1DC44003136C0 /* ViewController.swift */,
+				01C140AD1FB1DC44003136C0 /* Main.storyboard */,
+				01C140B01FB1DC44003136C0 /* Assets.xcassets */,
+				01C140B21FB1DC44003136C0 /* LaunchScreen.storyboard */,
+				01C140B51FB1DC44003136C0 /* Info.plist */,
+			);
+			path = LogoDiffuse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +220,23 @@
 			productReference = 01C140911FB1963B003136C0 /* HeartBeat.app */;
 			productType = "com.apple.product-type.application";
 		};
+		01C140A61FB1DC44003136C0 /* LogoDiffuse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01C140B81FB1DC44003136C0 /* Build configuration list for PBXNativeTarget "LogoDiffuse" */;
+			buildPhases = (
+				01C140A31FB1DC44003136C0 /* Sources */,
+				01C140A41FB1DC44003136C0 /* Frameworks */,
+				01C140A51FB1DC44003136C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LogoDiffuse;
+			productName = LogoDiffuse;
+			productReference = 01C140A71FB1DC44003136C0 /* LogoDiffuse.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -208,6 +259,10 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
+					01C140A61FB1DC44003136C0 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 01C1405D1FB13F46003136C0 /* Build configuration list for PBXProject "FourthWeek" */;
@@ -226,6 +281,7 @@
 				01C140611FB13F46003136C0 /* AnalogClock */,
 				01C1407A1FB1840C003136C0 /* CABasicAnimation */,
 				01C140901FB1963B003136C0 /* HeartBeat */,
+				01C140A61FB1DC44003136C0 /* LogoDiffuse */,
 			);
 		};
 /* End PBXProject section */
@@ -261,6 +317,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01C140A51FB1DC44003136C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01C140B41FB1DC44003136C0 /* LaunchScreen.storyboard in Resources */,
+				01C140B11FB1DC44003136C0 /* Assets.xcassets in Resources */,
+				01C140AF1FB1DC44003136C0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -288,6 +354,15 @@
 			files = (
 				01C140961FB1963C003136C0 /* ViewController.swift in Sources */,
 				01C140941FB1963B003136C0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01C140A31FB1DC44003136C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01C140AC1FB1DC44003136C0 /* ViewController.swift in Sources */,
+				01C140AA1FB1DC44003136C0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +413,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				01C1409D1FB1963C003136C0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		01C140AD1FB1DC44003136C0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01C140AE1FB1DC44003136C0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		01C140B21FB1DC44003136C0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01C140B31FB1DC44003136C0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -536,6 +627,34 @@
 			};
 			name = Release;
 		};
+		01C140B61FB1DC44003136C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LogoDiffuse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.LogoDiffuse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		01C140B71FB1DC44003136C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LogoDiffuse/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nick.LogoDiffuse;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -571,6 +690,15 @@
 			buildConfigurations = (
 				01C140A01FB1963C003136C0 /* Debug */,
 				01C140A11FB1963C003136C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01C140B81FB1DC44003136C0 /* Build configuration list for PBXNativeTarget "LogoDiffuse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01C140B61FB1DC44003136C0 /* Debug */,
+				01C140B71FB1DC44003136C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

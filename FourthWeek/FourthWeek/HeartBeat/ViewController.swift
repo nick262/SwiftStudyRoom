@@ -27,9 +27,7 @@ class ViewController: UIViewController {
 
 }
 extension ViewController{
-    //    创建calayer
     fileprivate func createLayer (position: CGPoint, withImage: CGImage) -> CALayer {
-        //创建calayer
         let layer = CALayer()
         //设置位置和大小
         layer.position = position
@@ -46,7 +44,7 @@ extension ViewController{
         let scaleAni = CABasicAnimation()
         //设置动画属性
         scaleAni.keyPath = keyPath
-        
+
         //设置动画的起始位置。也就是动画从哪里到哪里。不指定起点，默认就从positoin开始
         scaleAni.toValue = toValue
         
