@@ -8,11 +8,7 @@
 
 import UIKit
 
-enum AnimationStatus {
-    case normal
-    case animating
-    case pause
-}
+
 
 class NKLoadingView: UIView {
     
@@ -24,6 +20,8 @@ class NKLoadingView: UIView {
     var margin: CGFloat = 0
     // 动画时间
     var duration: Double = 3
+    //动画的间隔时间
+    var interval:Double = 1
     // 四条线的颜色
     var colors: [UIColor] = [.red,.yellow,.blue,.green]
     // 动画的状态
@@ -31,12 +29,43 @@ class NKLoadingView: UIView {
     // 四条线
     private var lines: [CAShapeLayer] = []
     
+    enum AnimationStatus {
+        case normal
+        case animating
+        case pause
+    }
     // MARK: Public Methods
+    // 开始动画
     func startAnimation()  {
         angleAnimation()
         lineAnimationOne()
         lineAnimationTwo()
         lineAnimationThree()
+        status = .animating
+    }
+    // 暂停动画
+    func pauseAnimation()  {
+        layer.pauseAnimation()
+        for lineLayer in lines {
+            lineLayer.pauseAnimation()
+        }
+        status = .pause
+    }
+    // 恢复动画
+    func resumeAnimation() {
+        layer.resumeAnimation()
+        for lineLayer in lines {
+            lineLayer.resumeAnimation()
+        }
+        status = .animating
+    }
+    // 结束动画
+    func stopAnimation() {
+        layer.removeAllAnimations()
+        for lineLayer in lines {
+            lineLayer.removeAllAnimations()
+        }
+        status = .normal
     }
     // MARK: Initial Methods
     convenience init(frame:CGRect, colors: [UIColor]) {
@@ -52,8 +81,6 @@ class NKLoadingView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         config()
-        backgroundColor = UIColor.black
-        startAnimation()
     }
     
    private func config() {
@@ -142,60 +169,99 @@ class NKLoadingView: UIView {
             if i%2 == 1 {
                 keypath = "transform.translation.x"
             }
-            let lineAnimationTwo                   = CABasicAnimation.init(keyPath: keypath)
-            lineAnimationTwo.beginTime             = CACurrentMediaTime() + duration/2
-            lineAnimationTwo.duration              = duration/4
-            lineAnimationTwo.fillMode              = kCAFillModeForwards
-            lineAnimationTwo.isRemovedOnCompletion = false
-            lineAnimationTwo.autoreverses          = true
-            lineAnimationTwo.fromValue             = 0
+            let lineAnimation  =  CABasicAnimation(keyPath: keypath)
+            lineAnimation.beginTime = CACurrentMediaTime() + duration/2
+            lineAnimation.duration = duration/4
+            lineAnimation.fillMode = kCAFillModeForwards
+            lineAnimation.isRemovedOnCompletion = false
+            lineAnimation.autoreverses = true
+            lineAnimation.fromValue = 0
             if i == 0 || i == 3 {
-                lineAnimationTwo.toValue = lineLength/4 * scale
+                lineAnimation.toValue = lineLength/4 * scale
             }else {
-                lineAnimationTwo.toValue = -lineLength/4 * scale
+                lineAnimation.toValue = -lineLength/4 * scale
             }
-            let lineLayer = lines[i]
-            lineLayer.add(lineAnimationTwo, forKey: "lineAnimationThree")
+            lines[i].add(lineAnimation, forKey: "lineAnimation")
         }
+        
     }
     
-    /**
-     线的第三步动画，线由短变长
-     */
+    // MARK:线由短变长
     private func lineAnimationThree() {
-        //线移动的动画
-        let lineAnimationFour                   = CABasicAnimation.init(keyPath: "strokeEnd")
-        lineAnimationFour.beginTime             = CACurrentMediaTime() + duration
-        lineAnimationFour.duration              = duration/4
-        lineAnimationFour.fillMode              = kCAFillModeForwards
-        lineAnimationFour.isRemovedOnCompletion = false
-        lineAnimationFour.fromValue             = 0
-        lineAnimationFour.toValue               = 1
+        let lineAnimationThree = CABasicAnimation(keyPath: "strokeEnd")
+        lineAnimationThree.beginTime = CACurrentMediaTime() + duration
+        lineAnimationThree.duration = duration/4
+        lineAnimationThree.fillMode = kCAFillModeForwards
+        lineAnimationThree.isRemovedOnCompletion = false
+        lineAnimationThree.fromValue = 0
+        lineAnimationThree.toValue = 1
         for i in 0...3 {
             if i == 3 {
-                lineAnimationFour.delegate = self
+                lineAnimationThree.delegate = self
             }
             let lineLayer = lines[i]
-            lineLayer.add(lineAnimationFour, forKey: "lineAnimationFour")
+            lineLayer.add(lineAnimationThree, forKey: "lineAnimationThree")
         }
     }
+   
     
     func point(_ x: CGFloat, _ y: CGFloat) -> CGPoint {
         return CGPoint(x: x, y: y)
     }
-}
-extension NKLoadingView: CAAnimationDelegate{
-    
-    //MARK: Animation Delegate
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        if let animation = anim as? CABasicAnimation {
-            if animation.keyPath == "strokeEnd" {
-                startAnimation()
-            }
-        }
+    deinit {
+        print("loadingViewDeinit")
     }
 }
 
+extension NKLoadingView: CAAnimationDelegate{
+    //MARK: Animation Delegate
+    func animationDidStart(_ anim: CAAnimation) {
+        if let animation = anim as? CABasicAnimation {
+            if animation.keyPath == "transform.rotation.z" {
+                status = .animating
+            }
+        }
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if let animation = anim as? CABasicAnimation {
+            if animation.keyPath == "strokeEnd" {
+                if flag {
+                    status = .normal
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(interval) * Int64(NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: {
+                        if self.status != .animating {
+                            self.startAnimation()
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
+}
+extension CALayer {
+    // 暂停动画
+    func pauseAnimation() {
+        // 将当前时间CACurrentMediaTime转换为layer上的时间, 即将parent time转换为localtime
+        let pauseTime   = convertTime(CACurrentMediaTime(), from: nil)
+        // 设置layer的timeOffset, 在继续操作也会使用到
+        timeOffset = pauseTime
+        // localtime与parenttime的比例为0, 意味着localtime暂停了
+        speed = 0
+    }
+    //继续动画
+    func resumeAnimation() {
+        let pausedTime = timeOffset
+        speed          = 1
+        timeOffset     = 0
+        beginTime      = 0
+        // 计算暂停时间
+        let sincePause = convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        // local time相对于parent time时间的beginTime
+        beginTime      = sincePause
+    }
+    
+}
 
 
 

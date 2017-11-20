@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DynamicPercentageOfDataUsage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
 		<key>FifthWeek.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,7 +22,7 @@
 		<key>PlayerIndicator.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Spotify.xcscheme</key>
 		<dict>

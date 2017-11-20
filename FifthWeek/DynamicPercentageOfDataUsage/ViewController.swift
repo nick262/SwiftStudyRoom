@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var animationBtn: UIButton!
